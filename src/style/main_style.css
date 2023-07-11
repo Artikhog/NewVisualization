@@ -1,0 +1,23 @@
+@font-face {
+    font-family: "Roboto Light";
+}
+
+*, *:after, *:before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    transition: .05s ease-in-out;
+    /* добавим плавность переходов для всех элементов страницы*/
+}
+
+body {
+    /*font-family: Crysis;*/
+    color: #373737;
+    background: #f7f7f7;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+.img_container img{
+    display: none;
+}

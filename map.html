@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualisation</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/style/main_style.css">
+    <link rel="stylesheet" href="./src/style/content.css">
+    <link rel="stylesheet" href="./src/style/map.css">
+</head>
+<body>
+<div class="map_container">
+    <div id="map">
+        <div id="map_body">
+        </div>
+        <div id="map_background">
+        </div>
+    </div>
+    <div id="arrow" class="sample">
+        <div>
+            <svg width="60" height="60" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5.78507 105.138L55 6.70821L104.215 105.138L55.8598 90.6729L55 90.4157L54.1402 90.6729L5.78507 105.138Z" fill="#989898" stroke="#333333" stroke-width="6"/>
+                <line x1="55" y1="9" x2="55" y2="88" stroke="#333333" stroke-width="5"/>
+            </svg>
+        </div>
+    </div>
+
+    <div id="PioneerObject" class="sample">
+        <svg width="190" height="190" viewBox="0 0 190 190" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="40" r="37.5" fill="#FF0000" fill-opacity="0.5" stroke="#333333" stroke-width="5"/>
+            <circle cx="150" cy="40" r="37.5" fill="#FF0000" fill-opacity="0.5" stroke="#333333" stroke-width="5"/>
+            <circle cx="40" cy="150" r="37.5" fill="#FF0000" fill-opacity="0.5" stroke="#333333" stroke-width="5"/>
+            <circle cx="150" cy="150" r="37.5" fill="#FF0000" fill-opacity="0.5" stroke="#333333" stroke-width="5"/>
+            <rect x="167.832" y="150.154" width="25" height="181" rx="12.5" transform="rotate(135 167.832 150.154)" fill="#FF0000" stroke="#333333" stroke-width="5"/>
+            <rect x="39.8457" y="167.832" width="25" height="181" rx="12.5" transform="rotate(-135 39.8457 167.832)" fill="#FF0000" stroke="#333333" stroke-width="5"/>
+            <path class="white_element" d="M45.7851 145.138L95 46.7082L144.215 145.138L95.8598 130.673L95 130.416L94.1402 130.673L45.7851 145.138Z" fill="white" stroke="#333333" stroke-width="6"/>
+        </svg>
+        <div class="make_shot"></div>
+    </div>
+
+    <div id="TestObject" class="sample">
+        <svg width="190" height="190" viewBox="0 0 190 190" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="40" r="37.5" fill="black" fill-opacity="0.5" stroke="#333333" stroke-width="5"/>
+            <circle cx="150" cy="40" r="37.5" fill="black" fill-opacity="0.5" stroke="#333333" stroke-width="5"/>
+            <circle cx="40" cy="150" r="37.5" fill="black" fill-opacity="0.5" stroke="#333333" stroke-width="5"/>
+            <circle cx="150" cy="150" r="37.5" fill="black" fill-opacity="0.5" stroke="#333333" stroke-width="5"/>
+            <rect x="167.832" y="150.154" width="25" height="181" rx="12.5" transform="rotate(135 167.832 150.154)" fill="black" stroke="#333333" stroke-width="5"/>
+            <rect x="39.8457" y="167.832" width="25" height="181" rx="12.5" transform="rotate(-135 39.8457 167.832)" fill="black" stroke="#333333" stroke-width="5"/>
+            <path class="white_element" d="M95 33.0902L108.338 74.1413L108.9 75.8688H110.716L153.88 75.8688L118.96 101.24L117.49 102.307L118.051 104.035L131.39 145.086L96.4695 119.715L95 118.647L93.5305 119.715L58.6103 145.086L71.9487 104.035L72.5099 102.307L71.0405 101.24L36.1202 75.8688L79.284 75.8688H81.1004L81.6617 74.1413L95 33.0902Z" fill="#808080" stroke="#333333" stroke-width="5"/>
+        </svg>
+        <div class="make_shot"></div>
+    </div>
+
+    <div id="EduBotObject" class="sample">
+        <svg width="130" height="136" viewBox="0 0 130 136" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M75.5947 2.5L107.5 20.4615V125.568H65L22.5 125.568V20.4615L54.4053 2.5H75.5947Z" fill="#0500FF" stroke="#333333" stroke-width="5"/>
+            <rect x="2.5" y="2.5" width="20" height="40" fill="#0500FF" fill-opacity="0.5" stroke="#333333" stroke-width="5"/>
+            <rect x="107.5" y="2.5" width="20" height="40" fill="#0500FF" fill-opacity="0.5" stroke="#333333" stroke-width="5"/>
+            <rect x="2.5" y="93.5" width="20" height="40" fill="#0500FF" fill-opacity="0.5" stroke="#333333" stroke-width="5"/>
+            <rect x="107.5" y="93.5" width="20" height="40" fill="#0500FF" fill-opacity="0.5" stroke="#333333" stroke-width="5"/>
+            <path class="white_element" d="M15.7851 118.138L65 19.7082L114.215 118.138L65.8598 103.673L65 103.416L64.1402 103.673L15.7851 118.138Z" fill="white" stroke="#333333" stroke-width="6"/>
+        </svg>
+        <div class="make_shot"></div>
+    </div>
+
+    <div id="starting_plates" class="sample">
+        <svg width="190" height="190" viewBox="0 0 190 190" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 167.929V22.0711L22.0711 5H167.929L185 22.0711V167.929L167.929 185H22.0711L5 167.929Z" fill="#0500FF" stroke="#FFFF00" stroke-width="10"/>
+            <circle cx="95" cy="95" r="65.5" stroke="white" stroke-width="5" stroke-dasharray="10 10"/>
+        </svg>
+        <span>1</span>
+    </div>
+
+    <div id="factories" class="sample">
+        <svg width="190" height="190" viewBox="0 0 190 190" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M167.929 5L185 22.0711V167.929L167.929 185H22.0711L5 167.929V22.0711L22.0711 5H167.929Z" fill="#FF0000" stroke="#FFFF00" stroke-width="10"/>
+            <path class="white_element" d="M119.221 157V102.092H70.695V157H45V34H70.695V80.8969H119.221V34H145V157H119.221Z" fill="white"/>
+        </svg>
+    </div>
+
+    <div id="home_mark" class="sample">
+        <svg width="107" height="107" viewBox="0 0 190 190" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="95" cy="95" r="95" fill="#FF0000"/>
+            <path class="white_element" d="M50 97.5L95 61L140 97.5V123C140 128.523 135.523 133 130 133H107V103H83V133H60C54.4772 133 50 128.523 50 123V97.5Z" fill="white"/>
+            <path class="white_element" d="M41.7578 94.2879C40.876 92.6313 41.2899 90.5823 42.7456 89.3979L90.3226 50.6863C90.9328 50.1898 91.6182 49.7935 92.3531 49.5125V49.5125C94.0574 48.8606 95.9434 48.8607 97.648 49.5119V49.5119C98.3842 49.7932 99.0713 50.1902 99.6827 50.6877L147.255 89.398C148.71 90.5825 149.124 92.6314 148.242 94.288V94.288C147.081 96.4699 144.216 97.0485 142.299 95.4884L94.9998 57.0002L47.7012 95.4883C45.784 97.0484 42.9193 96.4698 41.7578 94.2879V94.2879Z" fill="white"/>
+            <path class="white_element" d="M116 52.5H132V77L116 64V52.5Z" fill="white"/>
+        </svg>
+    </div>
+
+
+    <div id="arrow_img" class="sample">
+        <svg width="110" height="110" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="white_element" d="M5.78507 105.138L55 6.70821L104.215 105.138L55.8598 90.6729L55 90.4157L54.1402 90.6729L5.78507 105.138Z" fill="#989898" stroke="#333333" stroke-width="6"/>
+            <line x1="55" y1="9" x2="55" y2="88" stroke="#333333" stroke-width="5"/>
+        </svg>
+    </div>
+
+    <div id="cargo_box" class="sample">
+        <svg width="55" height="68" viewBox="0 0 55 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M27.2 3.00463L51.9 19.4713V48.5287L27.2 64.9954L2.5 48.5287V19.4713L27.2 3.00463Z" fill="#0500FF" stroke="#333333" stroke-width="5"/>
+            <path d="M1.36002 18.8133L27.2 34.9067L53.04 18.8133" stroke="#333333" stroke-width="5"/>
+            <path d="M27.2 34.9067V66.64" stroke="#333333" stroke-width="5"/>
+        </svg>
+    </div>
+
+    <div id="chargers" class="sample">
+        <svg width="190" height="190" viewBox="0 0 190 190" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M167.929 5L185 22.0711V167.929L167.929 185H22.0711L5 167.929V22.0711L22.0711 5H167.929Z" fill="#0500FF" stroke="#FFFF00" stroke-width="10"/>
+            <circle cx="95" cy="95" r="65.5" stroke="white" stroke-width="5" stroke-dasharray="10 10"/>
+            <path class="yellow_element" d="M74 99L126 50L97 90H116L64 139L93 99H74Z" fill="#FFFF00"/>
+        </svg>
+    </div>
+
+    <div id="Shield" class="sample"></div>
+
+    <div id="Damage_Up" class="sample"></div>
+
+    <div id="empty" class="sample"></div>
+</div>
+
+<div class="content">
+    <div id="blue_team_name_div" class="header_div">
+        <span id="blue_team_name">Синие</span>
+        <span id="blue_team_balls"></span>
+        <div id="blue_team_list_counter">
+            <div class="team_count"></div>
+        </div>
+    </div>
+    <div id="red_team_name_div" class="header_div">
+        <span id="red_team_name">Красные</span>
+        <span id="red_team_balls"></span>
+        <div id="red_team_list_counter">
+            <div class="team_count"></div>
+        </div>
+    </div>
+
+    <div id="time_div" class="header_div">
+        <span id="time">Время</span>
+    </div>
+
+    <div id="blue_team_div" class="blue_team_div">
+        <div id="blue_player0_div" class="blue_player_div">
+            <img class="block_img" src="./src/img/block_back.png">
+            <span id="blue_player1_name" class="blue_player_name">ИГРОК 1</span>
+            <span id="blue_player1_balls" class="blue_player_balls"></span>
+            <img class="blue_player_camera" src="./src/img/blue_camera.png">
+            <img class="blue_drone_img" src="./src/img/blue_drone.png">
+            <img class="blue_box_img" src="./src/img/green_box.png">
+            <div class="blue_bullet_div">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+            </div>
+            <span class="blue_status_marker"></span>
+            <img class="blue_status_img" src="./src/img/connection.png">
+        </div>
+        <div id="blue_player1_div" class="blue_player_div">
+            <img class="block_img" src="./src/img/block_back.png">
+            <span id="blue_player2_name" class="blue_player_name">ИГРОК 2</span>
+            <span id="blue_player2_balls" class="blue_player_balls"></span>
+            <img class="blue_player_camera" src="./src/img/blue_camera.png">
+            <img class="blue_drone_img" src="./src/img/blue_drone.png">
+            <img class="blue_box_img" src="./src/img/green_box.png">
+            <div class="blue_bullet_div">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+            </div>
+            <span class="blue_status_marker"></span>
+            <img class="blue_status_img" src="./src/img/connection.png">
+        </div>
+        <div id="blue_player2_div" class="blue_player_div">
+            <img class="block_img" src="./src/img/block_back.png">
+            <span id="blue_player3_name" class="blue_player_name">ИГРОК 3</span>
+            <span id="blue_player3_balls" class="blue_player_balls"></span>
+            <img class="blue_player_camera" src="./src/img/blue_camera.png">
+            <img class="blue_drone_img" src="./src/img/blue_drone.png">
+            <img class="blue_box_img" src="./src/img/green_box.png">
+            <div class="blue_bullet_div">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+            </div>
+            <span class="blue_status_marker"></span>
+            <img class="blue_status_img" src="./src/img/connection.png">
+        </div>
+        <div id="blue_player3_div" class="blue_player_div">
+            <img class="block_img" src="./src/img/block_back.png">
+            <span id="blue_player4_name" class="blue_player_name">ИГРОК 4</span>
+            <span id="blue_player4_balls" class="blue_player_balls"></span>
+            <img class="blue_drone_img" src="./src/img/blue_drone.png">
+            <img class="blue_player_camera" src="./src/img/blue_camera.png">
+            <img class="blue_box_img" src="./src/img/green_box.png">
+            <div class="blue_bullet_div">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+            </div>
+            <span class="blue_status_marker"></span>
+            <img class="blue_status_img" src="./src/img/connection.png">
+        </div>
+        <div id="blue_player4_div" class="blue_player_div">
+            <img class="block_img" src="./src/img/block_back.png">
+            <span id="blue_player5_name" class="blue_player_name">ИГРОК 5</span>
+            <span id="blue_player5_balls" class="blue_player_balls"></span>
+            <img class="blue_drone_img" src="./src/img/blue_drone.png">
+            <img class="blue_player_camera" src="./src/img/blue_camera.png">
+            <img class="blue_box_img" src="./src/img/green_box.png">
+            <div class="blue_bullet_div">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+            </div>
+            <span class="blue_status_marker"></span>
+            <img class="blue_status_img" src="./src/img/connection.png">
+        </div>
+    </div>
+
+    <div id="red_team_div" class="red_team_div">
+        <div id="red_player0_div" class="red_player_div">
+            <img class="block_img" src="./src/img/block_back.png">
+            <span id="red_player1_name" class="red_player_name">ИГРОК 1</span>
+            <span id="red_player1_balls" class="red_player_balls"></span>
+            <img class="red_player_camera" src="./src/img/red_camera.png">
+            <img class="red_drone_img" src="./src/img/red_drone.png">
+            <img class="red_box_img" src="./src/img/green_box.png">
+            <div class="red_bullet_div">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+            </div>
+            <span class="red_status_marker"></span>
+            <img class="red_status_img" src="./src/img/connection.png">
+        </div>
+        <div id="red_player1_div" class="red_player_div">
+            <img class="block_img" src="./src/img/block_back.png">
+            <span id="red_player2_name" class="red_player_name">ИГРОК 2</span>
+            <span id="red_player2_balls" class="red_player_balls"></span>
+            <img class="red_player_camera" src="./src/img/red_camera.png">
+            <img class="red_drone_img" src="./src/img/red_drone.png">
+            <img class="red_box_img" src="./src/img/green_box.png">
+            <div class="red_bullet_div">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+            </div>
+            <span class="red_status_marker"></span>
+            <img class="red_status_img" src="./src/img/connection.png">
+        </div>
+        <div id="red_player2_div" class="red_player_div">
+            <img class="block_img" src="./src/img/block_back.png">
+            <span id="red_player3_name" class="red_player_name">ИГРОК 3</span>
+            <span id="red_player3_balls" class="red_player_balls"></span>
+            <img class="red_player_camera" src="./src/img/red_camera.png">
+            <img class="red_drone_img" src="./src/img/red_drone.png">
+            <img class="red_box_img" src="./src/img/green_box.png">
+            <div class="red_bullet_div">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+            </div>
+            <span class="red_status_marker"></span>
+            <img class="red_status_img" src="./src/img/connection.png">
+        </div>
+        <div id="red_player3_div" class="red_player_div">
+            <img class="block_img" src="./src/img/block_back.png">
+            <span id="red_player4_name" class="red_player_name">ИГРОК 4</span>
+            <span id="red_player4_balls" class="red_player_balls"></span>
+            <img class="red_player_camera" src="./src/img/red_camera.png">
+            <img class="red_drone_img" src="./src/img/red_drone.png">
+            <img class="red_box_img" src="./src/img/green_box.png">
+            <div class="red_bullet_div">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+            </div>
+            <span class="red_status_marker"></span>
+            <img class="red_status_img" src="./src/img/connection.png">
+        </div>
+        <div id="red_player4_div" class="red_player_div">
+            <img class="block_img" src="./src/img/block_back.png">
+            <span id="red_player5_name" class="red_player_name">ИГРОК 5</span>
+            <span id="red_player5_balls" class="red_player_balls"></span>
+            <img class="red_player_camera" src="./src/img/red_camera.png">
+            <img class="red_drone_img" src="./src/img/red_drone.png">
+            <img class="red_box_img" src="./src/img/green_box.png">
+            <div class="red_bullet_div">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+            </div>
+            <span class="red_status_marker"></span>
+            <img class="red_status_img" src="./src/img/connection.png">
+        </div>
+        <img id="wait_game" src="./src/img/wait_game.png">
+    </div>
+</div>
+
+
+<script src="./src/js/jquery.min.js"></script>
+<script src="./src/js/info_utils.js"></script>
+<script src="./src/js/map.js"></script>
+<script src="./src/js/resize_game_window.js"></script>
+<script src="./src/js/template.js"></script>
+</body>
+</html>

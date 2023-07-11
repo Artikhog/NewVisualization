@@ -1,0 +1,329 @@
+.header {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 50%;
+}
+
+.header_div {
+    box-sizing: border-box;
+    position: absolute;
+    width: 21%;
+    height: 17.8%;
+    line-height: 12%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header_div span{
+    position: absolute;
+    margin: 0;
+
+    font-style: normal;
+    font-size: 100px;
+
+    color: white;
+    text-align: center;
+}
+
+#blue_team_name{
+    position: absolute;
+
+    top: 30%;
+    text-align: center;
+
+    font-size: 135px;
+}
+
+#blue_team_name_div{
+    top: 0;
+    left: 0;
+
+    background: rgb(168, 196, 222);
+    border: 4px solid rgb(145, 190, 232);
+}
+
+#red_team_name{
+    position: absolute;
+
+    top: 30%;
+    text-align: center;
+
+    font-size: 135px;
+}
+
+#red_team_name_div{
+    top: 0;
+    right: 0;
+
+    background: rgb(255, 167, 174);
+    border: 4px solid rgb(255, 131, 141);
+}
+
+#time_div {
+    top: 0;
+    left: 45%;
+    width: 10%;
+    height: 8%;
+
+    background: rgba(255, 255, 255, 1);
+    border: 4px solid rgb(0, 0, 0);
+    border-radius: 0 0 40px 40px;
+}
+
+#blue_team_balls{
+    top: 70%;
+    font-size: 135px;
+    text-align: center;
+}
+
+#red_team_balls{
+    top: 70%;
+    font-size: 135px;
+    text-align: center;
+}
+
+#time{
+    font-size: 135px;
+}
+
+.content span{
+    position: absolute;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 80px;
+
+    color: rgb(61, 61, 61);
+}
+
+.blue_team_div{
+    transition: opacity 1s ease;
+}
+
+.red_team_div{
+    transition: opacity 1s ease;
+}
+
+.blue_player_div{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 21%;
+    height: 14.5%;
+    left: 0;
+    display: none;
+
+    background: rgb(168, 196, 222);
+    border: 4px solid rgb(145, 190, 232);
+}
+
+.red_player_div{
+    box-sizing: border-box;
+    position: absolute;
+    width: 21%;
+    height: 15%;
+    right: 0;
+    display: none;
+
+    background: rgb(255, 167, 174);
+    border: 4px solid rgb(255, 131, 141);
+}
+
+.block_img {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: none;
+}
+
+.blue_player_camera{
+    position: absolute;
+    top: 60px;
+    right: 60px;
+
+    width: 150px;
+    display: none;
+}
+
+.red_player_camera{
+    position: absolute;
+    top: 60px;
+    left: 60px;
+
+    width: 150px;
+    display: none;
+}
+
+.blue_status_marker{
+    position: absolute;
+    left: 150px;
+    top: 40%;
+    font-style: normal;
+    display: none;
+}
+
+.red_status_marker {
+    position: absolute;
+    left: 150px;
+    top: 40%;
+    font-style: normal;
+    display: none;
+}
+
+.blue_status_img {
+    position: absolute;
+    right: 85%;
+    top: 40%;
+    width: 100px;
+    font-style: normal;
+    display: none;
+}
+
+.red_status_img{
+    position: absolute;
+    right: 85%;
+    top: 40%;
+    width: 100px;
+    font-style: normal;
+    display: none;
+}
+
+.blue_drone_img{
+    position: absolute;
+    right: 5%;
+    top: 10%;
+    width: 13%;
+}
+
+.red_drone_img{
+    position: absolute;
+    left: 5%;
+    top: 10%;
+    width: 13%;
+}
+
+.blue_box_img{
+    position: absolute;
+    right: 5%;
+    top: 60%;
+    width: 13%;
+}
+
+.red_box_img{
+    position: absolute;
+    left: 5%;
+    top: 60%;
+    width: 13%;
+}
+
+.blue_bullet_div{
+    position: absolute;
+    right: 25%;
+    top: 30px;
+    width: 100px;
+    height: 100%;
+}
+
+.red_bullet_div{
+    position: absolute;
+    left: 25%;
+    top: 30px;
+    width: 100px;
+    height: 100%;
+}
+
+.bullet_img{
+    width: 90%;
+}
+
+.blue_player_name{
+    top: 25px;
+    left: 5%;
+}
+
+.red_player_name{
+    top: 25px;
+    right: 5%;
+}
+
+.blue_player_balls{
+    left: 15%;
+    bottom: 30%;
+}
+
+.red_player_balls{
+    right: 15%;
+    bottom: 30%;
+}
+
+#blue_player0_div{
+    top: 20%;
+}
+#blue_player1_div{
+    top: 36.5%;
+}
+#blue_player2_div{
+    top: 53%;
+}
+#blue_player3_div{
+    top: 69%;
+}
+#blue_player4_div{
+    bottom: 10px;
+}
+
+#red_player0_div{
+    top: 20%;
+}
+#red_player1_div{
+    top: 36.5%;
+}
+#red_player2_div{
+    top: 53%;
+}
+#red_player3_div{
+    top: 69%;
+}
+#red_player4_div {
+    bottom: 10px;
+}
+
+#blue_team_list_counter {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    display: none;
+}
+
+#red_team_list_counter {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    display: none;
+}
+
+.team_count{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: rgb(117, 146, 109);
+    transition: background-color 1s ease;
+    border: 1px solid rgb(61, 61, 61);
+    margin: 5px;
+}
+
+#wait_game{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    display: none;
+}

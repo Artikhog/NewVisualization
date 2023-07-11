@@ -1,0 +1,9 @@
+<svg width="190" height="190" viewBox="0 0 190 190" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="40" cy="40" r="37.5" fill="black" fill-opacity="0.5" stroke="#333333" stroke-width="5"/>
+<circle cx="150" cy="40" r="37.5" fill="black" fill-opacity="0.5" stroke="#333333" stroke-width="5"/>
+<circle cx="40" cy="150" r="37.5" fill="black" fill-opacity="0.5" stroke="#333333" stroke-width="5"/>
+<circle cx="150" cy="150" r="37.5" fill="black" fill-opacity="0.5" stroke="#333333" stroke-width="5"/>
+<rect x="167.832" y="150.154" width="25" height="181" rx="12.5" transform="rotate(135 167.832 150.154)" fill="black" stroke="#333333" stroke-width="5"/>
+<rect x="39.8457" y="167.832" width="25" height="181" rx="12.5" transform="rotate(-135 39.8457 167.832)" fill="black" stroke="#333333" stroke-width="5"/>
+<path d="M95 33.0902L108.338 74.1413L108.9 75.8688H110.716L153.88 75.8688L118.96 101.24L117.49 102.307L118.051 104.035L131.39 145.086L96.4695 119.715L95 118.647L93.5305 119.715L58.6103 145.086L71.9487 104.035L72.5099 102.307L71.0405 101.24L36.1202 75.8688L79.284 75.8688H81.1004L81.6617 74.1413L95 33.0902Z" fill="#808080" stroke="#333333" stroke-width="5"/>
+</svg>

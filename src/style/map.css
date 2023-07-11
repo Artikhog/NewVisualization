@@ -1,0 +1,210 @@
+html {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.white_element {
+    fill: white !important;
+}
+
+.yellow_element {
+    fill: #FFFF00 !important;
+}
+
+div {
+    display: inline-block;
+    --duration-anim: 0.2s;
+}
+
+.map_container{
+    position: absolute;
+    top: 0;
+    left: calc(50% - 1100px);
+}
+
+#map {
+    display: inline-block;
+    overflow: hidden;
+    box-sizing: content-box;
+    transition-duration: var(--duration-anim);
+}
+
+#map_body {
+    position: absolute;
+    width: 1100px;
+    height: 1100px;
+    z-index: 2;
+    transition-duration: var(--duration-anim);
+    zoom: 1;
+}
+
+#map_background {
+    position: absolute;
+    zoom: 1;
+    width: 1100px;
+    height: 1100px;
+    background: #0f0f0f url("../assets/map/map_bckg.png") no-repeat;
+    transition-duration: var(--duration-anim);
+}
+#test_obj {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+}
+
+.drone {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    transition-duration: var(--duration-anim);
+    z-index: 2;
+}
+
+.sample {
+    display: none;
+}
+
+.main_player {
+    z-index: 99999;
+    transition-duration: var(--duration-anim) !important;
+}
+
+.cargo {
+    position: absolute;
+    transition-duration: 0.2s;
+}
+
+.cargo_factory {
+    position: absolute;
+    animation-name: cargo_ready;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes cargo_ready {
+    from {
+        scale: 1.1;
+        filter: drop-shadow(2px 2px 2px black);
+    }
+
+    25% {
+        scale: 1.1;
+        filter: drop-shadow(2px 2px 2px black);
+    }
+
+    50% {
+        scale: 1.2;
+        filter: drop-shadow(10px 10px 4px black);
+    }
+
+    to {
+        scale: 1.1;
+        filter: drop-shadow(2px 2px 2px black);
+    }
+}
+
+.factory, .starting_plate,  .charger{
+    position: absolute;
+    transition-duration: var(--duration-anim);
+    z-index: 1;
+}
+
+.starting_plate span {
+    font-family: Helvetica;
+    position: absolute;
+    color: #FFFFFF;
+    line-height: 24px;
+}
+
+.starting_plate .home_mark {
+    position: absolute;
+    z-index: 2;
+}
+
+.make_shot {
+    position: absolute;
+    z-index: 4;
+    border-radius: 100%;
+    scale: 0;
+    transition-duration: 0.4s;
+    background-image: url("../assets/map/emi2.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.arrow {
+    position: absolute;
+    z-index: 99999;
+    top: calc(50% - 600px / 2);
+    left: calc(50% - 600px / 2);
+    transition-duration: var(--duration-anim);
+}
+
+.arrow div {
+    height: 600px;
+    width: 600px;
+    text-align: center;
+}
+
+#test_mark {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: blueviolet;
+    z-index: 99999;
+}
+
+.Shield, .Damage_Up {
+    position: absolute;
+    background-size: 100% 100%;
+    width: 170px;
+    height: 170px;
+    transition-duration: 1.5s;
+    animation-name: bonus_animation;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+}
+
+.Shield {
+    background-image: url("../../assets/map_new/Shield.png");
+}
+
+.Damage_Up {
+    background-image: url("../../assets/map_new/Damage_Up.png");
+}
+
+@keyframes bonus_animation {
+    from {
+        scale: 0.9;
+        filter: drop-shadow(2px 2px 2px black);
+    }
+
+    25% {
+        scale: 0.9;
+        filter: drop-shadow(2px 2px 2px black);
+    }
+
+    50% {
+        scale: 1;
+        filter: drop-shadow(10px 10px 4px black);
+    }
+
+    to {
+        scale: 0.9;
+        filter: drop-shadow(2px 2px 2px black);
+    }
+}
+
+@keyframes bonus_timeout {
+    from {
+        scale: 0.9;
+    }
+
+    50% {
+        scale: 1.2;
+    }
+
+    to {
+        scale: 0;
+    }
+}
