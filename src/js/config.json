@@ -1,0 +1,6 @@
+{
+    "ip": "http://127.0.0.1:5555",
+    "get_game_config_command": "/game?target=get&type_command=core&command=get_config",
+    "get_wed_info_command": "/game?target=get&type_command=player&command=get_web_info",
+    "get_visualization_command": "/?target=get&type_command=player&command=visualization"
+}

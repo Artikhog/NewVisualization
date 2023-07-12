@@ -1,66 +1,16 @@
 const directory_path = "./src/img/"
 
-// class VisualizationController{
-//     constructor(info_panel, server_url) {
-//         this.info_panel = info_panel;
-//         this.server_url = server_url
-//         this.wait_img = document.getElementById('wait_game')
-//         this.is_game = true;
-//         this.get_info_interval = null;
-//     }
-//     start_visualization() {
-//         try {
-//             this.get_objects()
-//             this.wait_img.style.display = 'none';
-//             setInterval(function () {
-//                 get_info();
-//             }, 200);
-//         } catch (e) {
-//             console.log('fsdfsfsf')
-//             this.is_game = false
-//             this.wait_img.style.display = 'block';
-//             setTimeout(() => {
-//                 this.start_visualization()
-//             }, 2000)
-//         }
-//     }
-//     get_info() {
-//         fetch(this.server_url).then(response =>
-//             response.json().then(data => ({
-//                     data: data,
-//                     status: response.status
-//                 })
-//             ).then(res => {
-//
-//                 const team_value = Object.values(res.data.team_info)
-//
-//                 document.getElementById('blue_team_balls').innerText = `${team_value[0].balls_team}`
-//                 document.getElementById('red_team_balls').innerText = `${team_value[1].balls_team}`
-//                 document.getElementById('time').innerText = res.data.server_info.gameTime
-//
-//                 this.info_panel.update_panels(team_value[0].players, team_value[1].players)
-//             }).catch(function (e) {
-//                 console.log(e)
-//             }));
-//     }
-//     get_objects() {
-//         fetch(this.server_url).then(response =>
-//             response.json().then(data => ({
-//                     data: data,
-//                     status: response.status
-//                 })
-//             ).then(res => {
-//                 const team_value = Object.values(res.data.team_info)
-//                 this.info_panel.add_panels(team_value[0].players, team_value[1].players)
-//             }).catch(function (e) {
-//                 console.log(e)
-//             }));
-//     }
-// }
-
-
 class InformationPanel{
     constructor() {
+        this.blue_player_panels = []
+        this.red_player_panels = []
+        this.switchers = []
+    }
+    clear_panels() {
+        this.switchers.forEach(switcher => {
+            switcher.stop_animation()
+        })
+        this.switchers = []
         this.blue_player_panels = []
         this.red_player_panels = []
     }
@@ -70,11 +20,9 @@ class InformationPanel{
         let blue_players_count = 0
         blue_players_data_array.forEach(player_data => {
             if (player_data.name_role !== "EmptyRole") {
-                console.log('blue', blue_players_count)
                 this.blue_player_panels.push(new PlayerPanel('blue', blue_players_count))
                 blue_players_count++
             } else if (player_data.name_role === "EmptyRole") {
-                console.log('blue', blue_players_count)
                 this.blue_player_panels.push(new PlayerPanel('blue', blue_players_count, false))
                 blue_players_count++
             }
@@ -82,22 +30,22 @@ class InformationPanel{
         let red_players_count = 0
         red_players_data_array.forEach(player_data => {
             if (player_data.name_role !== "EmptyRole") {
-                console.log('red', red_players_count)
                 this.red_player_panels.push(new PlayerPanel('red', red_players_count))
                 red_players_count++
             } else {
-                console.log('red', red_players_count)
                 this.red_player_panels.push(new PlayerPanel('red', red_players_count, false))
                 red_players_count++
             }
         })
 
         if (this.blue_player_panels.length > 5) {
-            var blue_switcher = new Panels_Switcher('blue')
+            const blue_switcher = new Panels_Switcher('blue')
+            this.switchers.push(blue_switcher)
             blue_switcher.start_animation();
         }
         if (this.red_player_panels.length > 5) {
-            var red_switcher = new Panels_Switcher('red')
+            const red_switcher = new Panels_Switcher('red')
+            this.switchers.push(red_switcher)
             red_switcher.start_animation();
         }
     }
@@ -137,7 +85,8 @@ class PlayerPanel{
         this.camera = this.player_div.getElementsByClassName(`${team_color}_player_camera`)[0]
         this.drone_image = this.player_div.getElementsByClassName(`${team_color}_drone_img`)[0]
         this.box_image = this.player_div.getElementsByClassName(`${team_color}_box_img`)[0]
-        this.bullet_image_array = this.player_div.getElementsByClassName('bullet_img')
+        this.bullet_div = this.player_div.getElementsByClassName(`${team_color}_bullet_div`)[0]
+        this.bullet_count = this.player_div.getElementsByClassName('bullet_count')[0]
         this.status_img = this.player_div.getElementsByClassName(`${team_color}_status_img`)[0]
         this.status_marker = this.player_div.getElementsByClassName(`${team_color}_status_marker`)[0]
         this.block_marker = this.player_div.getElementsByClassName(`block_img`)[0]
@@ -168,12 +117,7 @@ class PlayerPanel{
         }
     }
     set_bullet(bullet_number) {
-        for (let i = 0; i < bullet_number; i++) {
-            this.bullet_image_array[i].style.display = 'block';
-        }
-        for (let i = bullet_number; i < 3; i++) {
-            this.bullet_image_array[i].style.display = 'none';
-        }
+        this.bullet_count.innerHTML = 'x' + bullet_number
     }
     set_box(box_color_array, is_cargo) {
         if (is_cargo) {
@@ -222,7 +166,6 @@ class PlayerPanel{
             this.status_marker.innerHTML = 'Подключение...';
             this.status_img.src = "./src/img/connection.png";
             this.set_none_status();
-
         } else if (this.team_color === 'red') {
             this.player_div.style.background = 'rgb(255, 167, 174)';
             this.player_div.style.border = '4px solid rgb(255, 131, 141)';
@@ -239,7 +182,7 @@ class PlayerPanel{
         this.points.style.display = 'none';
         this.drone_image.style.display = 'none';
         this.box_image.style.display = 'none';
-        this.set_bullet(0);
+        this.bullet_div.style.display = 'none';
     }
     set_block_status() {
         this.status_marker.style.display = 'none';
@@ -247,6 +190,7 @@ class PlayerPanel{
         this.points.style.display = 'block';
         this.drone_image.style.display = 'block';
         this.block_marker.style.display = 'none';
+        this.bullet_div.style.display = 'block';
     }
     set_camera_status() {
         this.camera.style.display = 'block';
@@ -254,7 +198,7 @@ class PlayerPanel{
         this.status_img.style.display = 'none';
         this.points.style.display = 'none';
         this.drone_image.style.display = 'none';
-        this.set_bullet(0);
+        this.bullet_div.style.display = 'none';
     }
 }
 
@@ -264,14 +208,19 @@ class Panels_Switcher {
         this.current_list = 0
         this.panel_group_array = document.getElementsByClassName(`${this.team_color}_team_div`)
         this.list_number = this.panel_group_array.length
+        this.animation = null;
         document.getElementById(`${this.team_color}_team_list_counter`).style.display = 'block';
         this.list_counter = document.getElementById(`${this.team_color}_team_list_counter`).getElementsByClassName('team_count')
         add_counter(this.list_counter, this.list_number);
     }
     start_animation() {
-        setInterval(() => {
+        this.animation = setInterval(() => {
             this.update_current_list()
         }, 4000)
+    }
+    stop_animation() {
+        clearInterval(this.animation)
+        clear_counter(this.list_counter)
     }
     update_current_list() {
         this.current_list = (this.current_list + 1) % this.list_number
@@ -308,39 +257,11 @@ function add_counter(list_counter, list_number) {
     }
 }
 
-// function get_info(info_panel) {
-//     fetch(DataUrl).then(response =>
-//         response.json().then(data => ({
-//                 data: data,
-//                 status: response.status
-//             })
-//         ).then(res => {
-//
-//             const team_value = Object.values(res.data.team_info)
-//
-//             document.getElementById('blue_team_balls').innerText = `${team_value[0].balls_team}`
-//             document.getElementById('red_team_balls').innerText = `${team_value[1].balls_team}`
-//             document.getElementById('time').innerText = res.data.server_info.gameTime
-//
-//             info_panel.update_panels(team_value[0].players, team_value[1].players)
-//         }).catch(function (e) {
-//             console.log(e)
-//         }));
-// }
-//
-// function get_objects(info_panel) {
-//     fetch(DataUrl).then(response =>
-//         response.json().then(data => ({
-//                 data: data,
-//                 status: response.status
-//             })
-//         ).then(res => {
-//             const team_value = Object.values(res.data.team_info)
-//             info_panel.add_panels(team_value[0].players, team_value[1].players)
-//         }).catch(function (e) {
-//             console.log(e)
-//         }));
-// }
+function clear_counter(list_counter) {
+    for (let i = 1; i <= list_counter.length; i++) {
+        list_counter[i].remove()
+    }
+}
 
 
 

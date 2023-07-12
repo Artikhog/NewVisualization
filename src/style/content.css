@@ -197,58 +197,66 @@
 .blue_drone_img{
     position: absolute;
     right: 5%;
-    top: 10%;
+    top: 12%;
     width: 13%;
 }
 
 .red_drone_img{
     position: absolute;
     left: 5%;
-    top: 10%;
+    top: 12%;
     width: 13%;
 }
 
 .blue_box_img{
     position: absolute;
-    right: 5%;
-    top: 60%;
-    width: 13%;
+    right: 20%;
+    top: 9%;
+    width: 15%;
 }
 
 .red_box_img{
     position: absolute;
-    left: 5%;
-    top: 60%;
-    width: 13%;
+    left: 20%;
+    top: 9%;
+    width: 15%;
 }
 
 .blue_bullet_div{
     position: absolute;
-    right: 25%;
-    top: 30px;
-    width: 100px;
-    height: 100%;
+    right: 5%;
+    top: 60%;
+    width: 200px;
+    height: 100px;
 }
 
 .red_bullet_div{
     position: absolute;
-    left: 25%;
-    top: 30px;
-    width: 100px;
-    height: 100%;
+    left: 5%;
+    top: 60%;
+    width: 200px;
+    height: 100px;
 }
 
 .bullet_img{
-    width: 90%;
+    position: absolute;
+    left: 0;
+
+    height: 100%;
+}
+
+.bullet_count{
+    position: absolute;
+    right: 0;
 }
 
 .blue_player_name{
-    top: 25px;
+    top: 9%;
     left: 5%;
 }
 
 .red_player_name{
-    top: 25px;
+    top: 9%;
     right: 5%;
 }
 
@@ -325,5 +333,7 @@
     height: 100%;
     width: 100%;
     z-index: 100;
-    display: none;
+    opacity: 0;
+    transition: opacity 2s ease;
+    /*display: none;*/
 }

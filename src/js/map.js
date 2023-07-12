@@ -1,5 +1,5 @@
 class Map {
-    constructor(id, size, arena_size = 11, zoom = 1.5) {
+    constructor(id, size, arena_size = 11, zoom = 1.5, get_config_url, get_drones_position_url) {
         this.main_drone_color = ''; // Цвет главного игрока
         this.drones = []; // Массив дронов
         this.map_objects = []; // Массив объектов на карте
@@ -23,6 +23,9 @@ class Map {
         this.angle_fixer = 0;
         this.arrow_qw_now = -1;
         this.arrow_qw_prev = -1;
+
+        this.get_drones_position_url = get_drones_position_url
+        this.get_config_url = get_config_url
         this.init();
     }
 
@@ -34,10 +37,7 @@ class Map {
         this.map_body.style.height = this.size + 'px';
         this.map_body.style.width = this.size + 'px';
         this.map_body.style.zoom = this.zoom;
-
-        // const url_map_objects_data = "http://10.10.12.146:31222/game?target=get&type_command=core&command=get_config";
-        const url_map_objects_data = "http://127.0.0.1:5555/?target=get&type_command=player&command=config"
-        fetch(url_map_objects_data).then(response =>
+        fetch(this.get_config_url).then(response =>
             response.json().then(data => ({
                     data: data,
                     status: response.status
@@ -209,9 +209,7 @@ class Map {
         var arrow_qw_now = -1;
         var arrow_qw_prev = -1;
         setInterval(() => {
-            // const get_drones_position = "http://10.10.12.146:31222/game?target=get&type_command=player&command=get_web_info"
-            const get_drones_position = "http://127.0.0.1:5555/?target=get&type_command=player&command=game"
-            fetch(get_drones_position).then(response =>
+            fetch(this.get_drones_position_url).then(response =>
                 response.json().then(data => ({
                         data: data,
                         status: response.status
@@ -252,7 +250,7 @@ class Map {
                             case "Fabric_RolePolygon":
                                 var cargo_colors = polygon_info[id]["data_role"]["current_cargo_color"];
                                 this.map_objects[id + 1].set_cargos(cargo_colors);
-                                this.map_objects[id + 1].show_current_cargo();
+                                this.map_objects[id + 1].show_current_cargo(this.angle);
                                 break;
                             case "TakeoffArea_RolePolygon":
 
@@ -329,50 +327,24 @@ class Map {
     }
 
     follow_main_player(id) { // Карта центруется на главном игроке
-        var drone_pos = this.drones[id].get_position();
+        this.map.style.borderRadius = '0%';
+        this.map.style.width = 1100 * this.zoom + "px";
+        this.map.style.height = 1100 * this.zoom + "px";
 
-        // this.angle = drone_pos[2];
-        this.x = drone_pos[0];
-        this.y = drone_pos[1];
+        this.map_background.style.top = "0px";
+        this.map_background.style.left = "0px";
+        this.map_background.style.rotate = "0rad";
 
-        var half_map_height = this.map.offsetHeight / 2;
-        var half_map_width = this.map.offsetWidth / 2;
+        this.map_body.style.top = "0px";
+        this.map_body.style.left = "0px";
+        this.map_body.style.rotate = "0rad";
 
-        var pos_x = map(-this.x, -this.half_arena_size, this.half_arena_size, 0, this.size) - this.size + half_map_width / this.zoom// - this.size;
-        var pos_y = map(this.y, -this.half_arena_size, this.half_arena_size, 0, this.size) - this.size + half_map_height / this.zoom// - this.size;
+        this.map.style.rotate = this.angle + 'deg';
+        this.map.style.top = 'calc(-1292px + ' + (2160 - this.size * this.zoom) / 2 + 'px)';
+        this.map.style.left = 'calc(-2972px + ' + (3840 - this.size * this.zoom) / 2 + 'px)';
 
-        if(!this.big_map) {
-            this.map.style.opacity = '1';
-            this.map.style.rotate = -this.angle + 'rad';
-            this.map.style.top = '0px';
-            this.map.style.left = '0px';
-
-            this.map_background.style.left = pos_x + 'px';
-            this.map_background.style.top = pos_y + 'px';
-
-            this.map_body.style.left = pos_x + 'px';
-            this.map_body.style.top = pos_y + 'px';
-        } else {
-            this.map.style.borderRadius = '0%';
-            this.map.style.width = 1100 * this.zoom + "px";
-            this.map.style.height = 1100 * this.zoom + "px";
-
-            this.map_background.style.top = "0px";
-            this.map_background.style.left = "0px";
-            this.map_background.style.rotate = "0rad";
-
-            this.map_body.style.top = "0px";
-            this.map_body.style.left = "0px";
-            this.map_body.style.rotate = "0rad";
-
-            this.map.style.rotate = this.angle + 'deg';
-            this.map.style.top = 'calc(-1292px + ' + (2160 - this.size * this.zoom) / 2 + 'px)';
-            this.map.style.left = 'calc(-2972px + ' + (3840 - this.size * this.zoom) / 2 + 'px)';
-
-            this.map_background.style.left = 0 + 'px';
-            this.map_background.style.top = 0 + 'px';
-        }
-
+        this.map_background.style.left = 0 + 'px';
+        this.map_background.style.top = 0 + 'px';
     }
 
     set_keyboard_control() { // Управление главным игроком (для тестов)
@@ -403,7 +375,6 @@ class Map {
             if (e.keyCode === 81) {
                 this.angle -= 90;
             }
-            console.log("KEYCODE", e.keyCode, this.angle)
         });
     }
 }
@@ -722,7 +693,7 @@ class Factory extends Map_Object {
     }
     show_current_cargo(angle) {
         if (this.cargo_colors.length > 0) {
-            this.cargo.style.rotate = angle + "rad";
+            this.cargo.style.rotate = -angle + "deg";
             this.change_color_cargo(this.cargo_colors[0]);
         } else {
             this.change_color_cargo("none");
