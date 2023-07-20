@@ -1,5 +1,5 @@
 class Map {
-    constructor(id, size, arena_size = 11, zoom = 1.5, get_config_url, get_drones_position_url) {
+    constructor(id, size, arena_size = 11, zoom = 1.5) {
         this.main_drone_color = ''; // Цвет главного игрока
         this.drones = []; // Массив дронов
         this.map_objects = []; // Массив объектов на карте
@@ -24,12 +24,14 @@ class Map {
         this.arrow_qw_now = -1;
         this.arrow_qw_prev = -1;
 
-        this.get_drones_position_url = get_drones_position_url
-        this.get_config_url = get_config_url
-        this.init();
+        // this.init();
     }
 
-    init() { // Инициалищация карты (получение информации обо всех объектах и их отрисовка)
+    init(get_config_url, get_drones_position_url, background_src) { // Инициалищация карты (получение информации обо всех объектах и их отрисовка)
+        this.map_background.style.background = `#0f0f0f url(${background_src})`
+
+        this.get_drones_position_url = get_drones_position_url
+        this.get_config_url = get_config_url
         this.map_background.style.height = this.size + 'px';
         this.map_background.style.width = this.size + 'px';
         this.map_background.style.zoom = this.zoom;
@@ -37,6 +39,7 @@ class Map {
         this.map_body.style.height = this.size + 'px';
         this.map_body.style.width = this.size + 'px';
         this.map_body.style.zoom = this.zoom;
+
         fetch(this.get_config_url).then(response =>
             response.json().then(data => ({
                     data: data,
@@ -464,6 +467,7 @@ class Drone extends Map_Object { // Класс дрона / робота
         this.main_player = main_player;
         this.angle_fixer = 0;
         this.anti_rotation = 0;
+        this.player_number = '';
         this.make_object(this.type);
     }
 
@@ -514,6 +518,9 @@ class Drone extends Map_Object { // Класс дрона / робота
         new_drone_img.children[1].style.height = current_height + 40 + "px";
         this.object_model = new_drone_img;
         this.change_color(this.color);
+
+        this.player_number = new_drone_img.children[2];
+        this.player_number.innerHTML = this.id + 1;
     }
 
     update_position(id, map_pos) { // Обновление позиции дронов (если дрон, управляемый игроком, то ставим его в центр карты)
@@ -550,6 +557,8 @@ class Drone extends Map_Object { // Класс дрона / робота
         this.object_model.style.top = obj_pos_y + 'px';
         this.object_model.style.left = obj_pos_x + 'px';
         this.object_model.style.rotate = this.angle + 'rad';
+        this.player_number.style.rotate = "calc(" + -this.angle + "rad - " + map_pos.angle + "deg)";
+        // console.log(-this.angle, map_pos.angle)
     }
 
     make_shot(is_shooting) { // Отрисовка выстрела

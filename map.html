@@ -36,6 +36,7 @@
             <path class="white_element" d="M45.7851 145.138L95 46.7082L144.215 145.138L95.8598 130.673L95 130.416L94.1402 130.673L45.7851 145.138Z" fill="white" stroke="#333333" stroke-width="6"/>
         </svg>
         <div class="make_shot"></div>
+        <span class="player_number"></span>
     </div>
 
     <div id="TestObject" class="sample">
@@ -49,6 +50,7 @@
             <path class="white_element" d="M95 33.0902L108.338 74.1413L108.9 75.8688H110.716L153.88 75.8688L118.96 101.24L117.49 102.307L118.051 104.035L131.39 145.086L96.4695 119.715L95 118.647L93.5305 119.715L58.6103 145.086L71.9487 104.035L72.5099 102.307L71.0405 101.24L36.1202 75.8688L79.284 75.8688H81.1004L81.6617 74.1413L95 33.0902Z" fill="#808080" stroke="#333333" stroke-width="5"/>
         </svg>
         <div class="make_shot"></div>
+        <span class="player_number"></span>
     </div>
 
     <div id="EduBotObject" class="sample">
@@ -61,6 +63,7 @@
             <path class="white_element" d="M15.7851 118.138L65 19.7082L114.215 118.138L65.8598 103.673L65 103.416L64.1402 103.673L15.7851 118.138Z" fill="white" stroke="#333333" stroke-width="6"/>
         </svg>
         <div class="make_shot"></div>
+        <span class="player_number"></span>
     </div>
 
     <div id="starting_plates" class="sample">
@@ -135,7 +138,7 @@
     </div>
 
     <div id="time_div" class="header_div">
-        <span id="time">Время</span>
+        <span id="time">00:00</span>
     </div>
 
     <div id="blue_team_div" class="blue_team_div">
@@ -145,7 +148,13 @@
             <span id="blue_player1_balls" class="blue_player_balls"></span>
             <img class="blue_player_camera" src="./src/img/blue_camera.png">
             <img class="blue_drone_img" src="./src/img/blue_drone.png">
-            <img class="blue_box_img" src="./src/img/green_box.png">
+            <div class="blue_box_div">
+                <svg width="105" height="105" viewBox="0 0 55 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M27.2 3.00463L51.9 19.4713V48.5287L27.2 64.9954L2.5 48.5287V19.4713L27.2 3.00463Z" fill="#0500FF" stroke="#333333" stroke-width="5"/>
+                    <path d="M1.36002 18.8133L27.2 34.9067L53.04 18.8133" stroke="#333333" stroke-width="5"/>
+                    <path d="M27.2 34.9067V66.64" stroke="#333333" stroke-width="5"/>
+                </svg>
+            </div>
             <div class="blue_bullet_div">
                 <img class="bullet_img" src="./src/img/bullet.png">
                 <span class="bullet_count"></span>
@@ -159,7 +168,13 @@
             <span id="blue_player2_balls" class="blue_player_balls"></span>
             <img class="blue_player_camera" src="./src/img/blue_camera.png">
             <img class="blue_drone_img" src="./src/img/blue_drone.png">
-            <img class="blue_box_img" src="./src/img/green_box.png">
+            <div class="blue_box_div">
+                <svg width="105" height="105" viewBox="0 0 55 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M27.2 3.00463L51.9 19.4713V48.5287L27.2 64.9954L2.5 48.5287V19.4713L27.2 3.00463Z" fill="#0500FF" stroke="#333333" stroke-width="5"/>
+                    <path d="M1.36002 18.8133L27.2 34.9067L53.04 18.8133" stroke="#333333" stroke-width="5"/>
+                    <path d="M27.2 34.9067V66.64" stroke="#333333" stroke-width="5"/>
+                </svg>
+            </div>
             <div class="blue_bullet_div">
                 <img class="bullet_img" src="./src/img/bullet.png">
                 <span class="bullet_count"></span>
@@ -173,7 +188,13 @@
             <span id="blue_player3_balls" class="blue_player_balls"></span>
             <img class="blue_player_camera" src="./src/img/blue_camera.png">
             <img class="blue_drone_img" src="./src/img/blue_drone.png">
-            <img class="blue_box_img" src="./src/img/green_box.png">
+            <div class="blue_box_div">
+                <svg width="105" height="105" viewBox="0 0 55 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M27.2 3.00463L51.9 19.4713V48.5287L27.2 64.9954L2.5 48.5287V19.4713L27.2 3.00463Z" fill="#0500FF" stroke="#333333" stroke-width="5"/>
+                    <path d="M1.36002 18.8133L27.2 34.9067L53.04 18.8133" stroke="#333333" stroke-width="5"/>
+                    <path d="M27.2 34.9067V66.64" stroke="#333333" stroke-width="5"/>
+                </svg>
+            </div>
             <div class="blue_bullet_div">
                 <img class="bullet_img" src="./src/img/bullet.png">
                 <span class="bullet_count"></span>
@@ -186,8 +207,14 @@
             <span id="blue_player4_name" class="blue_player_name">ИГРОК 4</span>
             <span id="blue_player4_balls" class="blue_player_balls"></span>
             <img class="blue_drone_img" src="./src/img/blue_drone.png">
-            <img class="blue_player_camera" src="./src/img/blue_camera.png">
-            <img class="blue_box_img" src="./src/img/green_box.png">
+            <img class="blue_player_camera" src="./src/img/blue_camera.png" xmlns="http://www.w3.org/2000/svg">
+            <div class="blue_box_div">
+                <svg width="105" height="105" viewBox="0 0 55 68" fill="none">
+                    <path d="M27.2 3.00463L51.9 19.4713V48.5287L27.2 64.9954L2.5 48.5287V19.4713L27.2 3.00463Z" fill="#0500FF" stroke="#333333" stroke-width="5"/>
+                    <path d="M1.36002 18.8133L27.2 34.9067L53.04 18.8133" stroke="#333333" stroke-width="5"/>
+                    <path d="M27.2 34.9067V66.64" stroke="#333333" stroke-width="5"/>
+                </svg>
+            </div>
             <div class="blue_bullet_div">
                 <img class="bullet_img" src="./src/img/bullet.png">
                 <span class="bullet_count"></span>
@@ -201,9 +228,16 @@
             <span id="blue_player5_balls" class="blue_player_balls"></span>
             <img class="blue_drone_img" src="./src/img/blue_drone.png">
             <img class="blue_player_camera" src="./src/img/blue_camera.png">
-            <img class="blue_box_img" src="./src/img/green_box.png">
+            <div class="blue_box_div">
+                <svg width="105" height="105" viewBox="0 0 55 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M27.2 3.00463L51.9 19.4713V48.5287L27.2 64.9954L2.5 48.5287V19.4713L27.2 3.00463Z" fill="#0500FF" stroke="#333333" stroke-width="5"/>
+                    <path d="M1.36002 18.8133L27.2 34.9067L53.04 18.8133" stroke="#333333" stroke-width="5"/>
+                    <path d="M27.2 34.9067V66.64" stroke="#333333" stroke-width="5"/>
+                </svg>
+            </div>
             <div class="blue_bullet_div">
                 <img class="bullet_img" src="./src/img/bullet.png">
+                <span class="bullet_count"></span>
             </div>
             <span class="blue_status_marker"></span>
             <img class="blue_status_img" src="./src/img/connection.png">
@@ -217,7 +251,13 @@
             <span id="red_player1_balls" class="red_player_balls"></span>
             <img class="red_player_camera" src="./src/img/red_camera.png">
             <img class="red_drone_img" src="./src/img/red_drone.png">
-            <img class="red_box_img" src="./src/img/green_box.png">
+            <div class="red_box_div">
+                <svg width="105" height="105" viewBox="0 0 55 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M27.2 3.00463L51.9 19.4713V48.5287L27.2 64.9954L2.5 48.5287V19.4713L27.2 3.00463Z" fill="#0500FF" stroke="#333333" stroke-width="5"/>
+                    <path d="M1.36002 18.8133L27.2 34.9067L53.04 18.8133" stroke="#333333" stroke-width="5"/>
+                    <path d="M27.2 34.9067V66.64" stroke="#333333" stroke-width="5"/>
+                </svg>
+            </div>
             <div class="red_bullet_div">
                 <img class="bullet_img" src="./src/img/bullet.png">
                 <span class="bullet_count"></span>
@@ -231,7 +271,13 @@
             <span id="red_player2_balls" class="red_player_balls"></span>
             <img class="red_player_camera" src="./src/img/red_camera.png">
             <img class="red_drone_img" src="./src/img/red_drone.png">
-            <img class="red_box_img" src="./src/img/green_box.png">
+            <div class="red_box_div">
+                <svg width="105" height="105" viewBox="0 0 55 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M27.2 3.00463L51.9 19.4713V48.5287L27.2 64.9954L2.5 48.5287V19.4713L27.2 3.00463Z" fill="#0500FF" stroke="#333333" stroke-width="5"/>
+                    <path d="M1.36002 18.8133L27.2 34.9067L53.04 18.8133" stroke="#333333" stroke-width="5"/>
+                    <path d="M27.2 34.9067V66.64" stroke="#333333" stroke-width="5"/>
+                </svg>
+            </div>
             <div class="red_bullet_div">
                 <img class="bullet_img" src="./src/img/bullet.png">
                 <span class="bullet_count"></span>
@@ -245,7 +291,13 @@
             <span id="red_player3_balls" class="red_player_balls"></span>
             <img class="red_player_camera" src="./src/img/red_camera.png">
             <img class="red_drone_img" src="./src/img/red_drone.png">
-            <img class="red_box_img" src="./src/img/green_box.png">
+            <div class="red_box_div">
+                <svg width="105" height="105" viewBox="0 0 55 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M27.2 3.00463L51.9 19.4713V48.5287L27.2 64.9954L2.5 48.5287V19.4713L27.2 3.00463Z" fill="#0500FF" stroke="#333333" stroke-width="5"/>
+                    <path d="M1.36002 18.8133L27.2 34.9067L53.04 18.8133" stroke="#333333" stroke-width="5"/>
+                    <path d="M27.2 34.9067V66.64" stroke="#333333" stroke-width="5"/>
+                </svg>
+            </div>
             <div class="red_bullet_div">
                 <img class="bullet_img" src="./src/img/bullet.png">
                 <span class="bullet_count"></span>
@@ -259,7 +311,13 @@
             <span id="red_player4_balls" class="red_player_balls"></span>
             <img class="red_player_camera" src="./src/img/red_camera.png">
             <img class="red_drone_img" src="./src/img/red_drone.png">
-            <img class="red_box_img" src="./src/img/green_box.png">
+            <div class="red_box_div">
+                <svg width="105" height="105" viewBox="0 0 55 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M27.2 3.00463L51.9 19.4713V48.5287L27.2 64.9954L2.5 48.5287V19.4713L27.2 3.00463Z" fill="#0500FF" stroke="#333333" stroke-width="5"/>
+                    <path d="M1.36002 18.8133L27.2 34.9067L53.04 18.8133" stroke="#333333" stroke-width="5"/>
+                    <path d="M27.2 34.9067V66.64" stroke="#333333" stroke-width="5"/>
+                </svg>
+            </div>
             <div class="red_bullet_div">
                 <img class="bullet_img" src="./src/img/bullet.png">
                 <span class="bullet_count"></span>
@@ -273,7 +331,13 @@
             <span id="red_player5_balls" class="red_player_balls"></span>
             <img class="red_player_camera" src="./src/img/red_camera.png">
             <img class="red_drone_img" src="./src/img/red_drone.png">
-            <img class="red_box_img" src="./src/img/green_box.png">
+            <div class="red_box_div">
+                <svg width="105" height="105" viewBox="0 0 55 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M27.2 3.00463L51.9 19.4713V48.5287L27.2 64.9954L2.5 48.5287V19.4713L27.2 3.00463Z" fill="#0500FF" stroke="#333333" stroke-width="5"/>
+                    <path d="M1.36002 18.8133L27.2 34.9067L53.04 18.8133" stroke="#333333" stroke-width="5"/>
+                    <path d="M27.2 34.9067V66.64" stroke="#333333" stroke-width="5"/>
+                </svg>
+            </div>
             <div class="red_bullet_div">
                 <img class="bullet_img" src="./src/img/bullet.png">
                 <span class="bullet_count"></span>
@@ -282,6 +346,15 @@
             <img class="red_status_img" src="./src/img/connection.png">
         </div>
         <img id="wait_game" src="./src/img/wait_game.png">
+        <div id="developer_panel">
+            <span id="fps"></span>
+            <span id="blue_team_players_number"></span>
+            <span id="red_team_players_number"></span>
+            <span id="panels_switchers_number"></span>
+            <span id="get_visualization_url"></span>
+            <span id="get_config_url"></span>
+            <span id="get_web_info_url"></span>
+        </div>
     </div>
 </div>
 
@@ -290,7 +363,6 @@
 <script src="./src/js/info_utils.js"></script>
 <script src="./src/js/map.js"></script>
 <script src="./src/js/resize_game_window.js"></script>
-<script src="./src/js/config_utils.js"></script>
 <script src="./src/js/visualization_controller.js"></script>
 </body>
 </html>

@@ -44,6 +44,7 @@ class InformationPanel{
             blue_switcher.start_animation();
         }
         if (this.red_player_panels.length > 5) {
+            console.log(this.red_player_panels)
             const red_switcher = new Panels_Switcher('red')
             this.switchers.push(red_switcher)
             red_switcher.start_animation();
@@ -76,15 +77,16 @@ class PlayerPanel{
             }
             this.player_div = document.getElementsByClassName(`${team_color}_team_div`)[Math.floor(number / 5)].getElementsByClassName(`${team_color}_player_div`)[number%5]
         }
-        this.player_div.getElementsByClassName(`${team_color}_player_name`)[0].innerHTML = `ИГРОК ${number+1}`
+        // this.player_div.getElementsByClassName(`${team_color}_player_name`)[0].innerHTML = `ИГРОК ${number+1}`
         this.player_div.style.display = 'block'
         this.team_color = team_color;
         this.number = number;
         this.is_player = is_player;
+        this.player_name = this.player_div.getElementsByClassName(`${team_color}_player_name`)[0]
         this.points =  this.player_div.getElementsByClassName(`${team_color}_player_balls`)[0]
         this.camera = this.player_div.getElementsByClassName(`${team_color}_player_camera`)[0]
         this.drone_image = this.player_div.getElementsByClassName(`${team_color}_drone_img`)[0]
-        this.box_image = this.player_div.getElementsByClassName(`${team_color}_box_img`)[0]
+        this.box_image = this.player_div.getElementsByClassName(`${team_color}_box_div`)[0]
         this.bullet_div = this.player_div.getElementsByClassName(`${team_color}_bullet_div`)[0]
         this.bullet_count = this.player_div.getElementsByClassName('bullet_count')[0]
         this.status_img = this.player_div.getElementsByClassName(`${team_color}_status_img`)[0]
@@ -92,6 +94,7 @@ class PlayerPanel{
         this.block_marker = this.player_div.getElementsByClassName(`block_img`)[0]
     }
     set_data(player_data) {
+        this.player_name.innerHTML = `${player_data.name_player}`
         if (this.is_player) {
             this.points.innerText = `${player_data.balls}`;
             this.set_drone(player_data.name_object_controll);
@@ -121,7 +124,9 @@ class PlayerPanel{
     }
     set_box(box_color_array, is_cargo) {
         if (is_cargo) {
-            this.box_image.src = `${directory_path}${rgb_parser(box_color_array)}_box.png`
+            for (let i = 0; i < this.box_image.children[0].children.length; i++) {
+                this.box_image.children[0].children[i].setAttribute("fill", "rgb(" + box_color_array.toString() + ")");
+            }
             this.box_image.style.display = "block";
         }
         else {
@@ -131,48 +136,48 @@ class PlayerPanel{
     set_player_status(is_repair, is_connected, is_blocking) {
         if (is_repair) {
             this.player_div.style.background = 'rgb(191, 191, 191)';
-            this.player_div.style.border = '4px solid rgb(161, 161, 161)';
+            this.player_div.style.border = '10px solid rgb(161, 161, 161)';
             this.status_marker.innerHTML = 'В ремонте';
             this.status_img.src = "./src/img/repair.png";
             this.set_none_status();
         }
         else if (!is_connected) {
             this.player_div.style.background = 'rgb(255, 255, 255)';
-            this.player_div.style.border = '4px solid rgba(0, 0, 0, 0.25)';
+            this.player_div.style.border = '10px solid rgba(0, 0, 0, 0.25)';
             this.status_marker.innerHTML = 'Подключение...';
             this.status_img.src = "./src/img/connection.png";
             this.set_none_status();
         } else if (is_blocking) {
             this.player_div.style.background = 'rgb(255, 255, 255)';
-            this.player_div.style.border = '4px solid rgb(255, 216, 115)';
+            this.player_div.style.border = '10px solid rgb(255, 216, 115)';
             this.status_marker.innerHTML = 'Заблокирован';
             this.status_img.src = "./src/img/block.png";
             this.block_marker.style.display = 'block';
             this.set_none_status();
         } else if (this.team_color === 'red') {
             this.player_div.style.background = 'rgb(255, 167, 174)';
-            this.player_div.style.border = '4px solid rgb(255, 131, 141)';
+            this.player_div.style.border = '10px solid rgb(255, 131, 141)';
             this.set_block_status();
         } else if (this.team_color === 'blue') {
             this.player_div.style.background = 'rgb(168, 196, 222)';
-            this.player_div.style.border = '4px solid rgb(145, 190, 232)';
+            this.player_div.style.border = '10px solid rgb(145, 190, 232)';
             this.set_block_status();
         }
     }
     set_spectator_status(is_connected) {
         if (!is_connected) {
             this.player_div.style.background = 'rgb(255, 255, 255)';
-            this.player_div.style.border = '4px solid rgba(0, 0, 0, 0.25)';
+            this.player_div.style.border = '10px solid rgba(0, 0, 0, 0.25)';
             this.status_marker.innerHTML = 'Подключение...';
             this.status_img.src = "./src/img/connection.png";
             this.set_none_status();
         } else if (this.team_color === 'red') {
             this.player_div.style.background = 'rgb(255, 167, 174)';
-            this.player_div.style.border = '4px solid rgb(255, 131, 141)';
+            this.player_div.style.border = '10px solid rgb(255, 131, 141)';
             this.set_camera_status()
         } else if (this.team_color === 'blue') {
             this.player_div.style.background = 'rgb(168, 196, 222)';
-            this.player_div.style.border = '4px solid rgb(145, 190, 232)';
+            this.player_div.style.border = '10px solid rgb(145, 190, 232)';
             this.set_camera_status()
         }
     }
@@ -262,8 +267,6 @@ function clear_counter(list_counter) {
         list_counter[i].remove()
     }
 }
-
-
 
 function rgb_parser(rgb_array) {
     if (rgb_array[0] === 255 && rgb_array[1] === 185 && rgb_array[2] === 0) {

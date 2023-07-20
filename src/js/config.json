@@ -1,6 +1,12 @@
 {
-    "ip": "http://127.0.0.1:5555",
-    "get_game_config_command": "/game?target=get&type_command=core&command=get_config",
-    "get_wed_info_command": "/game?target=get&type_command=player&command=get_web_info",
-    "get_visualization_command": "/?target=get&type_command=player&command=visualization"
+    "ip": "http://192.168.42.54:31222",
+    "get_config_command": "/game?target=get&type_command=core&command=get_config",
+    "get_web_info_command": "/game?target=get&type_command=player&command=get_web_info",
+    "get_visualization_command": "/game?target=get&type_command=player&command=visualization",
+    "visualization_updating_time": 100,
+    "map_updating_time": 100,
+    "wait_connection_time": 2000,
+    "map_background_src": "./src/img/map_bckg.png",
+    "wait_game_src": "./src/img/wait_game.png"
 }
+

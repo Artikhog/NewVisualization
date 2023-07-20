@@ -42,7 +42,7 @@
     left: 0;
 
     background: rgb(168, 196, 222);
-    border: 4px solid rgb(145, 190, 232);
+    border: 10px solid rgb(145, 190, 232);
 }
 
 #red_team_name{
@@ -59,7 +59,7 @@
     right: 0;
 
     background: rgb(255, 167, 174);
-    border: 4px solid rgb(255, 131, 141);
+    border: 10px solid rgb(255, 131, 141);
 }
 
 #time_div {
@@ -116,7 +116,7 @@
     display: none;
 
     background: rgb(168, 196, 222);
-    border: 4px solid rgb(145, 190, 232);
+    border: 10px solid rgb(145, 190, 232);
 }
 
 .red_player_div{
@@ -128,7 +128,7 @@
     display: none;
 
     background: rgb(255, 167, 174);
-    border: 4px solid rgb(255, 131, 141);
+    border: 10px solid rgb(255, 131, 141);
 }
 
 .block_img {
@@ -197,28 +197,28 @@
 .blue_drone_img{
     position: absolute;
     right: 5%;
-    top: 12%;
+    top: 10%;
     width: 13%;
 }
 
 .red_drone_img{
     position: absolute;
     left: 5%;
-    top: 12%;
+    top: 10%;
     width: 13%;
 }
 
-.blue_box_img{
+.blue_box_div{
     position: absolute;
     right: 20%;
-    top: 9%;
+    top: 10%;
     width: 15%;
 }
 
-.red_box_img{
+.red_box_div{
     position: absolute;
     left: 20%;
-    top: 9%;
+    top: 10%;
     width: 15%;
 }
 
@@ -332,8 +332,52 @@
     right: 0;
     height: 100%;
     width: 100%;
-    z-index: 100;
+    z-index: 90;
     opacity: 0;
     transition: opacity 2s ease;
-    /*display: none;*/
 }
+
+#developer_panel{
+    position: absolute;
+    bottom: -800px;
+    left: calc(50% - 400px);
+
+    width: 800px;
+    height: 800px;
+    z-index: 100;
+
+    transition: bottom 1s ease;
+
+    background: rgb(191, 191, 191);
+    border: 10px solid rgb(61, 61, 61);
+}
+#fps{
+    position: absolute;
+    left: 10px;
+    top: 50px
+}
+
+#blue_team_players_number{
+    position: absolute;
+    left: 10px;
+    top: 150px
+}
+
+#red_team_players_number{
+    position: absolute;
+    left: 10px;
+    top: 250px
+}
+
+#panels_switchers_number{
+    position: absolute;
+    left: 10px;
+    top: 350px
+}
+
+#panels_switchers_number{
+    position: absolute;
+    left: 10px;
+    top: 350px
+}
+

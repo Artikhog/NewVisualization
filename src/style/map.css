@@ -43,7 +43,7 @@ div {
     zoom: 1;
     width: 1100px;
     height: 1100px;
-    background: #0f0f0f url("../assets/map/map_bckg.png") no-repeat;
+    background: #0f0f0f url("../assets/map/map_bckg.png");
     transition-duration: var(--duration-anim);
 }
 #test_obj {
@@ -165,12 +165,18 @@ div {
     animation-duration: 2s;
 }
 
+.player_number {
+    position: absolute;
+    color: white;
+    font-size: 32px;
+}
+
 .Shield {
-    background-image: url("../../assets/map_new/Shield.png");
+    background-image: url("../assets/map_new/Shield.png");
 }
 
 .Damage_Up {
-    background-image: url("../../assets/map_new/Damage_Up.png");
+    background-image: url("../assets/map_new/Damage_Up.png");
 }
 
 @keyframes bonus_animation {
